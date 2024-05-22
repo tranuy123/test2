@@ -4,9 +4,49 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - test2</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/test2.styles.css" asp-append-version="true" />
+    <link href="/dist/css/tabler.min.css?1684106062" rel="stylesheet" />
+    <link href="/dist/css/treeview.css" rel="stylesheet" />
+    <link href="/dist/css/tabler-flags.min.css?1684106062" rel="stylesheet" />
+    <link href="/dist/css/tabler-payments.min.css?1684106062"
+          rel="stylesheet" />
+    <link href="~/dist/webfont/tabler-icons.min.css" rel="stylesheet" />
+    <link href="/dist/css/tabler-vendors.min.css?1684106062"
+          rel="stylesheet" />
+    <link href="/dist/css/demo.min.css?1684106062" rel="stylesheet" />
+
+    @RenderSection("styles", required: false)
+    <style>
+        :root {
+            --tblr-font-sans-serif: "Inter Var", -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+        }
+
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+        }
+
+        .option.selected {
+            --tblr-bg-opacity: 1;
+            --tblr-text-opacity: 1;
+            color: rgba(var(--tblr-azure-rgb),var(--tblr-text-opacity)) !important;
+            background-color: rgba(var(--tblr-azure-lt-rgb),var(--tblr-bg-opacity)) !important
+        }
+
+        .form-control[readonly] {
+            background-color: whitesmoke;
+        }
+
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+    <link href="/dist/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="/dist/libs/timeline/dist/timeline.min.css" rel="stylesheet" />
+
+    <script src="/dist/libs/Jquery/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" defer> </script>
 </head>
 <body>
     <header>
@@ -41,9 +81,39 @@
             &copy; 2024 - test2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+   <div class="suggestionBox" style="z-index:10;max-height:200px;overflow: auto;"></div>
+    <div id="dropdow-show" style="position:absolute; z-index: 1055;">
+    </div>
+    <iframe src="" style="display: none;" id="dialogPdf"></iframe>
+    <script src="~/dist/libs/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <!-- Libs JS -->
+    <script src="/dist/libs/apexcharts/dist/apexcharts.min.js?1684106062"
+            defer></script>
+    <script src="/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1684106062"
+            defer></script>
+    <script src="/dist/libs/jsvectormap/dist/maps/world.js?1684106062"
+            defer></script>
+    <script src="/dist/libs/jsvectormap/dist/maps/world-merc.js?1684106062"
+            defer></script>
+    <script src="/dist/libs/tom-select/dist/js/tom-select.base.js?1684106062"
+            defer asp-append-version="true"></script>
+
+    <script src="/dist/js/tabler.min.js?1684106062" defer></script>
+    <script src="/dist/js/demo.min.js?1684106062" defer></script>
+    <script src="/popper.js/umd/popper.min.js" defer></script>
+    <script src="/dist/datetimepicker/popper.min.js" defer></script>
+    <script src="/dist/datetimepicker/moment.min.js" defer></script>
+    <script src="/dist/datetimepicker/moment-with-locales.min.js" defer></script>
+    <script src="/dist/datetimepicker/bootstrap-datetimepicker.min.js" defer></script>
+    <script src="/dist/libs/timeline/dist/timeline.js" defer></script>
+    <script src="/dist/libs/timeline/dist/timeline.min.js" defer></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" defer></script>
+
+    <script src="/dist/libs/Jquery/jquery.inputmask.js" defer></script>
+    <script src="/dist/js/Common.js" defer asp-append-version="true"></script>
+    <script src="/dist/js/HubJs/Hub_Loa.js" defer asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
