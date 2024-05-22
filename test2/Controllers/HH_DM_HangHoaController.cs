@@ -13,15 +13,6 @@ namespace test2.Controllers
         }
         public async Task<dynamic> Index()
         {
-            var hh = await _context.HhHangHoas
-                .Where(x => x.HanSuDung.Value.Date == DateTime.Now.Date)
-                .ToListAsync();
-            foreach (HhHangHoa h in hh)
-            {
-                h.HanSuDung = DateTime.Now;
-            }
-            _context.HhHangHoas.UpdateRange(hh);
-            await _context.SaveChangesAsync();
             return View();
         }
     }

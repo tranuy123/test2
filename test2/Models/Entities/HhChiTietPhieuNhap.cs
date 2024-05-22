@@ -15,7 +15,7 @@ public partial class HhChiTietPhieuNhap
 
     public double? DonGia { get; set; }
 
-    public virtual HhHangHoa? IdhangHoaNavigation { get; set; }
+    public virtual HhDmHangHoa? IdhangHoaNavigation { get; set; }
 
     public virtual HhPhieuNhap IdphieuNhapNavigation { get; set; } = null!;
 }
