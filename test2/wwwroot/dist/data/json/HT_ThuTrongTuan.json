@@ -1,0 +1,44 @@
+[
+  {
+    "id": 2,
+    "ma": "Thu2",
+    "ten": "Thứ 2",
+    "viettat": "T2"
+  },
+  {
+    "id": 3,
+    "ma": "Thu3",
+    "ten": "Thứ 3",
+    "viettat": "T3"
+  },
+  {
+    "id": 4,
+    "ma": "Thu4",
+    "ten": "Thứ 4",
+    "viettat": "T4"
+  },
+  {
+    "id": 5,
+    "ma": "Thu5",
+    "ten": "Thứ 5",
+    "viettat": "T5"
+  },
+  {
+    "id": 6,
+    "ma": "Thu6",
+    "ten": "Thứ 6",
+    "viettat": "T6"
+  },
+  {
+    "id": 7,
+    "ma": "Thu7",
+    "ten": "Thứ 7",
+    "viettat": "T7"
+  },
+  {
+    "id": 1,
+    "ma": "ChuNhat",
+    "ten": "Chủ nhật",
+    "viettat": "CN"
+  }
+]
