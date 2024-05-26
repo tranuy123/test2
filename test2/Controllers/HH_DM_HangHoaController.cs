@@ -4,6 +4,7 @@ using test2.Models.Entities;
 
 namespace test2.Controllers
 {
+    [Route("[controller]")]
     public class HH_DM_HangHoaController : Controller
     {
         DemoNhaKhoaContext _context;
@@ -14,6 +15,11 @@ namespace test2.Controllers
         public async Task<dynamic> Index()
         {
             return View();
+        }
+        [HttpPost("get")]
+        public async Task<dynamic> get([FromBody]List<HhDmDonViTinh> donViTinhs)
+        {
+            return donViTinhs.ToList();
         }
     }
 }

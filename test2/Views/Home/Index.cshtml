@@ -1,132 +1,102 @@
-﻿
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <div class="row justify-content-between">
-            <div class="row col-9 col-sm-9 mb-2 p-0">
-                <div class="row">
-                    <div class="col">
-                        <div class="input-group">
-                            <input type="text" autocomplete="off" id="txtSearch" class="form-control" placeholder="Tìm kiếm thông tin">
-                            <button data-bs-toggle="dropdown" type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-auto-close="outside" id="showTimKiem"></button>
-                            <form class="dropdown-menu dropdown-menu-end p-3 col-md-5 col-12" id="formSearch">
-                                <div class="row row-cards mb-2">
-                                    <div class="col-sm-6 col-md-6 pr-0 mt-2">
-                                        <div class="">
-                                            <input type="text" autocomplete="off" name="MaQuan" class="form-control" placeholder="Theo mã quận, huyện">
+﻿  <div class="row m-0">
+                            <div class="col-12 col-lg-20 mb-2 pe-1">
+                                <div class="card">
+                                    <div class="card-body p-2 bg-azure-lt" style="color:black !important;">
+                                        <div class="row">
+                                              <div class="col-12 mb-1">
+                                                <label for="" class="">Ngày</label>
+                                                <div class="input-icon">
+                                                        <input type="text" autocomplete="off" class="form-control text-dark input-date-default" id="TuNgay" name="TuNgay" placeholder="Từ ngày" autocomplete="off">
+                                                    <span class="input-icon-addon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none">
+                                                            </path>
+                                                            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z">
+                                                            </path>
+                                                            <path d="M16 3v4"></path>
+                                                            <path d="M8 3v4"></path>
+                                                            <path d="M4 11h16"></path>
+                                                            <path d="M11 15h1"></path>
+                                                            <path d="M12 15v3"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                              <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label class="form-check d-inline-block ms-2">
+                                                            <input class="form-check-input" type="radio" name="TrangThaiRV" checked id="DangDieuTri">
+                                                            <span class="form-check-label">Cấp cứu</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="form-check d-inline-block">
+                                                            <input class="form-check-input" type="radio" name="TrangThaiRV" id="DaRaVien">
+                                                            <span class="form-check-label">Khám bệnh</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          <div class="col-12 mb-1">
+                                                <label for="" class="form-label m-0">Tên khoa</label>
+                                                <input class="form-control " name="" id="">
+                                            </div>
+                                            <div class="col-12 mb-1">
+                                                <label for="" class="form-label m-0">Số tiền</label>
+                                                <input class="form-control formatted-number" name="" id="">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-6 pr-0 mt-2">
-                                        <div class="">
-                                            <input type="text" autocomplete="off" name="TenQuan" class="form-control" placeholder="Theo tên quận, huyện">
+                                    <div class="card-footer p-2">
+                                        <button id="btn-Search" class="btn btn-primary w-100">Tải danh sách bệnh nhân</button>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-80 ps-1">
+                                <div class="card">
+                                    <div style="display: none;" id="progress">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-indeterminate bg-blue"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="mb-2">
-                                    <div class="form-label">Trạng thái</div>
-                                    <select class="form-select" name="Active">
-                                        <option value="true">Đang dùng</option>
-                                        <option value="false">Đã xóa</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-auto p-0">
-                        <button onclick="" class="btn btn-icon" aria-label="Button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path></svg>
-                        </button>
-                    </div>
-                    <div class="col-4">
-                        <select class="form-select cbNhomTinhCuTru" name="" id=""></select>
-                    </div>
-                </div>
-            </div>
-            <!-- Page title actions -->
-            <div class="col-auto mb-2 p-0">
-                <div class="btn-list">
-                    <button class="btn btn-primary d-none d-md-inline-block"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Thêm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M12 5l0 14"></path>
-                            <path d="M5 12l14 0"></path>
-                        </svg>
-                        Thêm mới
-                    </button>
-                    <button class="btn btn-primary d-md-none btn-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M12 5l0 14"></path>
-                            <path d="M5 12l14 0"></path>
-                        </svg>
-                    </button>
-                    <span class="d-md-inline">
-                        <button class="btn btn-icon btn-success" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M4 6l16 0"></path>
-                                <path d="M4 12l16 0"></path>
-                                <path d="M4 18l16 0"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <label class="dropdown-item"><input class="form-check-input m-0 me-2 show-column" type="checkbox" value="Idtinh">Tên quận, huyện</label>
-                                    <label class="dropdown-item"><input class="form-check-input m-0 me-2 show-column" type="checkbox" value="TenQuan">Tên tỉnh</label>
-                                    <label class="dropdown-item"><input class="form-check-input m-0 me-2 show-column" type="checkbox" value="MaQuan">Mã quận</label>
+                                    <div class="table-responsive" id="tableDsBN" style="height:75vh">
+                                        <table class="table table-bordered table-hover table-nowrap table-vcenter table-input">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center w-1 px-1">STT</th>
+                                                    <th class="text-center">Mã khoa</th>
+                                                    <th class="text-center">Tên khoa</th>
+                                                    <th class="text-center">Cấp cứu</th>
+                                                    <th class="text-center">Giá tham khảo</th>
+                                                    <th class="text-center">Ngày tạo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbodyDanhSachBenhNhan">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row justify-content-between mt-1 mx-0">
+                                        <div class="col-auto ms-2">
+                                            <select id="rowNumber" class="form-select">
+                                                <option value="20" selected>20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="200">200</option>
+                                                <option value="500">500</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-auto">
+                                            <ul class="pagination m-2 justify-content-end" id="pagi">
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page body -->
 
-<div class="page-body mb-1">
-    <div class="container-xl">
-        <div class="card">
-            <div style="display: none;" id="progress">
-                <div class="progress">
-                    <div class="progress-bar progress-bar-indeterminate bg-blue"></div>
-                </div>
-            </div>
-            <div class="table-responsive vh-md-73" id="tableDM">
-                <table class="table table-vcenter card-table table-bordered table-hover table-text">
-                    <thead>
-                        <tr>
-                            <th class="text-center first-th-md-column TenQuan">Tên quận, huyện</th>
-                            <th class="text-center Idtinh">Tên tỉnh</th>
-                            <th class="text-center MaQuan">Mã quận, huyện</th>
-                            <th class="text-center last-th-column">Tùy chọn</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-table">
-                   
-                    </tbody>
-                </table>
-            </div>
-             <div class="row justify-content-between mt-1">
-                <div class="col-auto ms-2">
-                    <select id="rowNumber" class="form-select">
-                        <option value="20" selected>20</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                        <option value="200">200</option>
-                        <option value="500">500</option>
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <ul class="pagination m-2 justify-content-end" id="pagi">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <script src="/dist/js/test.js" defer asp-append-version="true"></script>
