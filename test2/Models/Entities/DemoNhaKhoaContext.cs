@@ -32,11 +32,11 @@ public partial class DemoNhaKhoaContext : DbContext
     {
         modelBuilder.Entity<HhChiTietPhieuNhap>(entity =>
         {
-         /sadddddddddddddd///
+       
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.IdhangHoa).HasColumnName("IDHangHoa");
             entity.Property(e => e.IdphieuNhap).HasColumnName("IDPhieuNhap");
-/
+
             entity.HasOne(d => d.IdphieuNhapNavigation).WithMany(p => p.HhChiTietPhieuNhaps)
                 .HasForeignKey(d => d.IdphieuNhap)
                 .OnDelete(DeleteBehavior.ClientSetNull)
