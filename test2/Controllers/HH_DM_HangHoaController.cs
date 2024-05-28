@@ -7,7 +7,7 @@ using test2.Services.HangHoaServices;
 
 namespace test2.Controllers
 {
-    [Route("HangHoa")]
+    [Route("[controller]")]
     public class HH_DM_HangHoaController : Controller
     {
         DemoNhaKhoaContext _context;
@@ -83,6 +83,11 @@ namespace test2.Controllers
         {
             var rs = await _services.nangCao1(dateString, soPhieuNhap);
             return Ok(rs);
+        }
+        [HttpPost("get")]
+        public async Task<dynamic> get([FromBody]List<HhDmDonViTinh> donViTinhs)
+        {
+            return donViTinhs.ToList();
         }
     }
 }

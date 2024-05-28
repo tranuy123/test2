@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "ma": "1",
+    "ten": "Người chịu trách nhiệm chuyên môn",
+    "truongkhoa" :  false,
+    "viettat": "NCTNCM"
+  },
+  {
+    "id": 2,
+    "ma": "2",
+    "ten": "Trưởng khoa",
+    "truongkhoa": true,
+    "viettat": "TK"
+  },
+  {
+    "id": 3,
+    "ma": "3",
+    "ten": "Người chịu trách nhiệm chuyên môn kiêm Trưởng khoa",
+    "truongkhoa": true,
+    "viettat": "NCTNCMKTK"
+  }
+]
