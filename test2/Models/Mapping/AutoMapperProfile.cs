@@ -15,6 +15,8 @@ namespace test2.Models.Mapping
             .ForMember(dest => dest.IdphieuNhap, opt => opt.MapFrom(src => src.IdphieuNhap != "" ? long.Parse(src.IdphieuNhap) : (long?)null))
             .ForMember(dest => dest.SoLuong, opt => opt.MapFrom(src => src.SoLuong != "" ? double.Parse(src.SoLuong.Replace(",", "")) : (double?)null))
             .ForMember(dest => dest.DonGia, opt => opt.MapFrom(src => src.DonGia != "" ? double.Parse(src.DonGia.Replace(",", "")) : (double?)null));
+            CreateMap<HhPhieuNhapMap, HhPhieuNhap>()
+                .ForMember(dest => dest.NgayTao, otp => otp.MapFrom(src => src.NgayTao != "" ? DateTime.ParseExact(src.NgayTao, "dd-MM-yyyy", CultureInfo.InvariantCulture) : (DateTime?)null ));
         }
     }
 }
