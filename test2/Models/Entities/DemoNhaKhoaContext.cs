@@ -32,17 +32,10 @@ public partial class DemoNhaKhoaContext : DbContext
     {
         modelBuilder.Entity<HhChiTietPhieuNhap>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__HH_ChiTi__3214EC27C7CFFDFD");
-
-            entity.ToTable("HH_ChiTietPhieuNhap");
-
+       
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.IdhangHoa).HasColumnName("IDHangHoa");
             entity.Property(e => e.IdphieuNhap).HasColumnName("IDPhieuNhap");
-
-            entity.HasOne(d => d.IdhangHoaNavigation).WithMany(p => p.HhChiTietPhieuNhaps)
-                .HasForeignKey(d => d.IdhangHoa)
-                .HasConstraintName("FK__HH_ChiTie__IDHan__5AB9788F");
 
             entity.HasOne(d => d.IdphieuNhapNavigation).WithMany(p => p.HhChiTietPhieuNhaps)
                 .HasForeignKey(d => d.IdphieuNhap)
