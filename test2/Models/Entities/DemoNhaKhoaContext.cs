@@ -14,7 +14,7 @@ public partial class DemoNhaKhoaContext : DbContext
         : base(options)
     {
     }
-
+    //A
     public virtual DbSet<HhChiTietPhieuNhap> HhChiTietPhieuNhaps { get; set; }
 
     public virtual DbSet<HhDmDonViTinh> HhDmDonViTinhs { get; set; }
