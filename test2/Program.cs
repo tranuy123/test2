@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using test2.Models.Entities;
 using Newtonsoft.Json;
+using test2.Models.FunctionDB;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +22,7 @@ builder.Services.AddResponseCompression(options =>
 builder.Services.AddMemoryCache();
 builder.Services.AddDbContext<DemoNhaKhoaContext>(c =>
         c.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
-builder.Services.AddDbContext<DemoNhaKhoaContext>(c =>
+builder.Services.AddDbContext<FunctionDBContext>(c =>
         c.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
 // Add services to the container.
 
