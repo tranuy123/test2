@@ -9,6 +9,7 @@ namespace test2.Services.HangHoaServices
     {
         Task<dynamic> Modify(HhPhieuNhapMap hhPhieuNhapMap, List<HhChiTietPhieuNhapMap> hhChiTietPhieuNhaps);
         Task<dynamic> Read();
+        Task<dynamic> delete(long id)
     }
     public class HhDmHangHoaServices : IHhDmHangHoaServices
     {
@@ -93,6 +94,35 @@ namespace test2.Services.HangHoaServices
                 })
                 .ToListAsync();
             return data;
+        }
+
+        public async Task<dynamic> delete(long id)
+        {
+            var tran = _context.Database.BeginTransaction();
+            try
+            {
+                var model = await _context.HhDmHangHoas.FindAsync(id);
+                _context.HhDmHangHoas.Remove(model);
+
+                await _context.SaveChangesAsync();
+                tran.Commit();
+
+                return new
+                {
+                    statusCode = 200,
+                    message = "Thành công!"
+                };
+            }
+            catch (Exception ex) 
+            {
+                tran.Rollback();
+
+                return new
+                {
+                    statusCode = 500,
+                    message = "Thất bại!"
+                };
+            }
         }
     }
 }

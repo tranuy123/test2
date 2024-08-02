@@ -19,15 +19,24 @@ namespace test2.Controllers
             _mapper = mapper;
             _services = services;
         }
+
         [HttpPost("Modify")]
         public async Task<dynamic> Modify([FromBody] PhieuNhap data)
         {
             return await _services.Modify(data.PhieuNhapMap, data.PhieuNhapCT);
         }
+
         [HttpPost("Read")]
         public async Task<dynamic> Read()
         {
             return await _services.Read();
+        }
+
+        [HttpPost("Delete")]
+        public async Task<IActionResult> Delete(long id)
+        {
+            var result = await _services.delete(id);
+            return Ok(result);
         }
 
     }
