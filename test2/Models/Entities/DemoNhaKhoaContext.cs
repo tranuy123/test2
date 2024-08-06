@@ -14,7 +14,7 @@ public partial class DemoNhaKhoaContext : DbContext
         : base(options)
     {
     }
-    //A
+
     public virtual DbSet<HhChiTietPhieuNhap> HhChiTietPhieuNhaps { get; set; }
 
     public virtual DbSet<HhDmDonViTinh> HhDmDonViTinhs { get; set; }
@@ -25,6 +25,8 @@ public partial class DemoNhaKhoaContext : DbContext
 
     public virtual DbSet<HhPhieuNhap> HhPhieuNhaps { get; set; }
 
+    public virtual DbSet<TestView> TestViews { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionStrings:Connection");
 
@@ -32,10 +34,17 @@ public partial class DemoNhaKhoaContext : DbContext
     {
         modelBuilder.Entity<HhChiTietPhieuNhap>(entity =>
         {
-       
+            entity.HasKey(e => e.Id).HasName("PK__HH_ChiTi__3214EC27C7CFFDFD");
+
+            entity.ToTable("HH_ChiTietPhieuNhap");
+
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.IdhangHoa).HasColumnName("IDHangHoa");
             entity.Property(e => e.IdphieuNhap).HasColumnName("IDPhieuNhap");
+
+            entity.HasOne(d => d.IdhangHoaNavigation).WithMany(p => p.HhChiTietPhieuNhaps)
+                .HasForeignKey(d => d.IdhangHoa)
+                .HasConstraintName("FK__HH_ChiTie__IDHan__5AB9788F");
 
             entity.HasOne(d => d.IdphieuNhapNavigation).WithMany(p => p.HhChiTietPhieuNhaps)
                 .HasForeignKey(d => d.IdphieuNhap)
@@ -110,6 +119,22 @@ public partial class DemoNhaKhoaContext : DbContext
             entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.SoPhieuNhap).HasMaxLength(50);
         });
+
+        modelBuilder.Entity<TestView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("TestView");
+
+            entity.Property(e => e.HanSuDung).HasColumnType("datetime");
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("ID");
+            entity.Property(e => e.MaHangHoa).HasMaxLength(50);
+            entity.Property(e => e.NgaySanXuat).HasColumnType("datetime");
+            entity.Property(e => e.TenHangHoa).HasMaxLength(100);
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 

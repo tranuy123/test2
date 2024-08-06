@@ -9,7 +9,7 @@ namespace test2.Services.HangHoaServices
     {
         Task<dynamic> Modify(HhPhieuNhapMap hhPhieuNhapMap, List<HhChiTietPhieuNhapMap> hhChiTietPhieuNhaps);
         Task<dynamic> Read();
-        Task<dynamic> delete(long id)
+        Task<dynamic> delete(long id);
     }
     public class HhDmHangHoaServices : IHhDmHangHoaServices
     {
