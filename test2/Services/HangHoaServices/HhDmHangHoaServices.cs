@@ -89,7 +89,8 @@ namespace test2.Services.HangHoaServices
                                 Id = y.IdhangHoaNavigation.IddonViTinhNavigation.Id,
                                 TenDvt = y.IdhangHoaNavigation.IddonViTinhNavigation.TenDvt
                             } : null
-                        }
+                        },
+                        y.DonGia,
                     }).ToList()
                 })
                 .ToListAsync();
