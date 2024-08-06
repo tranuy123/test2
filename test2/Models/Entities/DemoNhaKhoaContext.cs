@@ -25,8 +25,6 @@ public partial class DemoNhaKhoaContext : DbContext
 
     public virtual DbSet<HhPhieuNhap> HhPhieuNhaps { get; set; }
 
-    public virtual DbSet<TestView> TestViews { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionStrings:Connection");
 
@@ -118,21 +116,6 @@ public partial class DemoNhaKhoaContext : DbContext
             entity.Property(e => e.GhiChu).HasMaxLength(200);
             entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.SoPhieuNhap).HasMaxLength(50);
-        });
-
-        modelBuilder.Entity<TestView>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("TestView");
-
-            entity.Property(e => e.HanSuDung).HasColumnType("datetime");
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("ID");
-            entity.Property(e => e.MaHangHoa).HasMaxLength(50);
-            entity.Property(e => e.NgaySanXuat).HasColumnType("datetime");
-            entity.Property(e => e.TenHangHoa).HasMaxLength(100);
         });
 
         OnModelCreatingPartial(modelBuilder);
